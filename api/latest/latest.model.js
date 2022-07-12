@@ -8,7 +8,7 @@ const latestSchema = new mongoose.Schema({
     type: String,
   },
   timestamp: {
-    type: number,
+    type: Number,
     required: true,
   },
   base: {

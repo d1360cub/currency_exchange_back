@@ -1,10 +1,10 @@
-const API_URL = "https://openexchangerates.org/api";
+const API_URL =
+  "https://openexchangerates.org/api/latest.json?app_id=d897af2a42aa4416bdf01c42cd9cef12";
 
 const getLatest = async () => {
+  console.log("llega a llamar a la api?");
   try {
-    const response = await fetch(
-      `${API_URL}/latest.json?app_id=${process.env.APP_ID}`
-    );
+    const response = await fetch(`${API_URL}`);
     const data = await response.json();
     return data;
   } catch {
@@ -12,7 +12,7 @@ const getLatest = async () => {
   }
 };
 
-/*export const getOneProduct = async (id) => {
+const getOneProduct = async (id) => {
   try {
     const response = await fetch(`${API_URL}/${id}`);
     const data = await response.json();
@@ -20,6 +20,6 @@ const getLatest = async () => {
   } catch {
     throw new Error("Error fetching product");
   }
-};*/
+};
 
-console.log(getLatest());
+module.exports = { getLatest, getOneProduct };
