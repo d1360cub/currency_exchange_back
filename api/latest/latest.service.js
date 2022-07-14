@@ -12,8 +12,14 @@ async function createLatest() {
   } catch (error) {
     console.log(error);
   }
-  const latest = await LatestModel.create(data);
+  const test = { base: "usd" };
+  const latest = await LatestModel.create();
   return latest;
 }
 
-module.exports = { createLatest };
+async function getLatest() {
+  const latest = await LatestModel.find();
+  return latest;
+}
+
+module.exports = { createLatest, getLatest };
